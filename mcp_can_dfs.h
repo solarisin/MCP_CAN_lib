@@ -38,7 +38,7 @@
 
 // if print debug information
 #ifndef DEBUG_MODE
-#define DEBUG_MODE 1
+#define DEBUG_MODE 0
 #endif
 
 // Flag to enable send validation - disabling speeds up sending frames by 10x on ESP32S3 w/ MCP2515 over SPI
