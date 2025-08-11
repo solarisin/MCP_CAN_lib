@@ -1164,6 +1164,7 @@ INT8U MCP_CAN::sendMsg()
     mcp2515_write_canMsg( txbuf_n);
     mcp2515_modifyRegister( txbuf_n-1 , MCP_TXB_TXREQ_M, MCP_TXB_TXREQ_M );
     
+#if ENABLE_SEND_VALIDATION
     temp = micros();
     do
     {       
@@ -1174,7 +1175,7 @@ INT8U MCP_CAN::sendMsg()
     
     if(uiTimeOut >= TIMEOUTVALUE)                                       /* send msg timeout             */	
         return CAN_SENDMSGTIMEOUT;
-    
+#endif
     return CAN_OK;
 }
 

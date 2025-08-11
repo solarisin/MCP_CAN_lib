@@ -41,6 +41,14 @@
 #define DEBUG_MODE 1
 #endif
 
+// Flag to enable send validation - disabling speeds up sending frames by 10x on ESP32S3 w/ MCP2515 over SPI
+// https://forum.arduino.cc/t/trouble-with-mcp-can-not-sending-fast-enough/1264561/8
+// This should be enabled if verification of the sent frames is required - sendMsg will
+// never return CAN_SENDMSGTIMEOUT when this is disabled.
+#ifndef ENABLE_SEND_VALIDATION
+#define ENABLE_SEND_VALIDATION 0
+#endif
+
 /*
  *   Begin mt
  */
